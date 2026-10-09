@@ -1,0 +1,14 @@
+# ignore all upload content but keep the folder structure
+cat >> .gitignore <<'EOF'
+config/config.php
+uploads/avatars/*
+uploads/questions/*
+uploads/teams/*
+uploads/templates/*
+!uploads/avatars/default_avatar.png
+EOF
+
+# keep empty dirs in git
+for d in avatars questions teams templates; do
+  touch uploads/$d/.gitkeep
+done
